@@ -11,7 +11,7 @@ html = scraperwiki.scrape("http://abs.gov.au/AUSSTATS/abs@.nsf/mf/1345.0")
 root = lxml.html.fromstring(html)
 
 
-root.cssselect("tr valign="top"")
+root.cssselect("tr[valign='top']")
     record={}
     record["indicator"]=td[0].text_content()
     record["pub"]=td[1].text_content()
