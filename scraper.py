@@ -13,7 +13,7 @@ root = lxml.html.fromstring(html)
 
 for tr in root.cssselect("tr[valign='top']"):
     td = tr.findall("td")
-    if td is None or len(td) == 0:
+    if td is None or len(td) < 3:
         continue
     record={}
     record["indicator"]=td[0].text_content()
