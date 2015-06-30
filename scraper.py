@@ -11,7 +11,10 @@ html = scraperwiki.scrape("http://abs.gov.au/AUSSTATS/abs@.nsf/mf/1345.0")
 root = lxml.html.fromstring(html)
 
 
-root.cssselect("tr[valign='top']")
+for tr in root.cssselect("tr[valign='top']")
+    td = tr.findall("td")
+    if td is None or len(td) == 0:
+        continue
     record={}
     record["indicator"]=td[0].text_content()
     record["pub"]=td[1].text_content()
